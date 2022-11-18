@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import uniquid from 'uniqid'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import {useNavigate} from 'react-router-dom'
 function AgregarUsuarios(){
+
+    const navegar=useNavigate()
      //Hooks
      const[nombre,setNombre]=useState('')
      const[apellido,setApellido]=useState('')
@@ -25,6 +28,7 @@ function AgregarUsuarios(){
         .then(res=>{
             //alert(res.data)
             Swal.fire('Felicidades', 'El paciente se creo con exito.')
+            navegar('/')
         })
         .then(err => {console.log(err)})
        
